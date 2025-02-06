@@ -30,5 +30,4 @@ def check_key_api():
     else:
         return jsonify({"status": "invalid", "message": "Key is invalid!"})
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)  # Cho phép tất cả địa chỉ IP truy cập
+# Vercel yêu cầu không sử dụng app.run(), vì vậy không cần chạy lại ở đây.
