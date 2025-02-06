@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, redirect
 import random
 import string
 from flask_cors import CORS  # Để xử lý CORS
@@ -29,5 +29,10 @@ def check_key_api():
         return jsonify({"status": "valid", "message": "Key is valid!"})
     else:
         return jsonify({"status": "invalid", "message": "Key is invalid!"})
+
+# Redirect root to /api
+@app.route('/')
+def redirect_to_api():
+    return redirect('/api', code=301)
 
 # Don't use app.run() for Vercel deployment
