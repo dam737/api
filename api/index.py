@@ -35,4 +35,4 @@ def check_key_api():
 def redirect_to_api():
     return redirect('/api', code=301)
 
-# Don't use app.run() for Vercel deployment
+# No need for app.run() in Vercel deployment
