@@ -15,14 +15,14 @@ def generate_key():
     return f"CAPYBARA_{random_part}"  # Kết hợp "CAPYBARA_KEY" với phần ngẫu nhiên
 
 # API tạo key
-@app.route('/generate-key', methods=['GET'])
+@app.route('/api/generate-key', methods=['GET'])
 def generate_key_api():
     new_key = generate_key()
     valid_keys.add(new_key)  # Lưu key vào danh sách hợp lệ
     return jsonify({"key": new_key})
 
 # API kiểm tra key
-@app.route('/check-key', methods=['POST'])
+@app.route('/api/check-key', methods=['POST'])
 def check_key_api():
     key = request.json.get('key')
     if key in valid_keys:
@@ -30,4 +30,4 @@ def check_key_api():
     else:
         return jsonify({"status": "invalid", "message": "Key is invalid!"})
 
-# Vercel yêu cầu không sử dụng app.run(), vì vậy không cần chạy lại ở đây.
+# Don't use app.run() for Vercel deployment
