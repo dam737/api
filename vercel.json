@@ -11,12 +11,5 @@
       "src": "/api/(.*)",
       "dest": "index.py"
     }
-  ],
-  "redirects": [
-    {
-      "source": "/",
-      "destination": "/api",
-      "permanent": true
-    }
   ]
 }
